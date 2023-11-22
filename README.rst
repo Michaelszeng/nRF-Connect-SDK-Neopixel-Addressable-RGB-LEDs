@@ -1,4 +1,4 @@
-Hello World
+nRF Connect SDK-Neopixel-Addressable-RGB-LEDs
 ###########
 
 Overview
