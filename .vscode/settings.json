@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "nrf_gpio.h": "c",
+        "log.h": "c",
+        "inttypes.h": "c",
+        "util.h": "c",
+        "pwm.h": "c",
+        "gpio.h": "c"
+    }
+}
