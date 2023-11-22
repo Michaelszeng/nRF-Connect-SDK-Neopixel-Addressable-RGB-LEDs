@@ -1,4 +1,4 @@
-nRF Connect SDK-Neopixel-Addressable-RGB-LEDs
+nRF-Connect-SDK-Neopixel-Addressable-RGB-LEDs
 ###########
 
 Overview
