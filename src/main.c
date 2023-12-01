@@ -23,14 +23,22 @@ int main(void)
 	init_neopixels();
 
 	while(1) {
-		neopixel_show_color(255, 0, 0, 255, 0, 0, 1000);
-		neopixel_show_color(0, 0, 0, 0, 0, 0, 1000);
-		neopixel_show_color(0, 255, 0, 0, 255, 0, 1000);
-		neopixel_show_color(0, 0, 0, 0, 0, 0, 1000);
-		neopixel_show_color(0, 0, 255, 0, 0, 255, 1000);
-		neopixel_show_color(0, 0, 0, 0, 0, 0, 1000);
-		neopixel_show_color(255, 255, 255, 255, 255, 255, 3000);
-		neopixel_show_color(0, 0, 0, 0, 0, 0, 1000);
+		// Basic Showing Colors
+		neopixel_show_color(255, 0, 0, 255, 0, 0, 500);
+		neopixel_show_color(0, 255, 0, 0, 255, 0, 500);
+		neopixel_show_color(0, 0, 255, 0, 0, 255, 500);
+		neopixel_show_color(255, 255, 255, 255, 255, 255, 500);
+		neopixel_show_color(0, 0, 0, 0, 0, 0, 2000);
+
+		// Fading
+		neopixel_fade_in_out(255, 0, 0, 255, 0, 0, 3000);
+		neopixel_fade_in_out(0, 255, 0, 0, 255, 0, 3000);
+		neopixel_fade_in_out(0, 0, 255, 0, 0, 255, 3000);
+		neopixel_fade_in_out(255, 255, 0, 255, 255, 0, 3000);
+		neopixel_fade_in_out(255, 0, 255, 255, 0, 255, 3000);
+		neopixel_fade_in_out(0, 255, 255, 0, 255, 255, 3000);
+		neopixel_fade_in_out(255, 255, 255, 255, 255, 255, 3000);
+		neopixel_show_color(0, 0, 0, 0, 0, 0, 2000);
 	}
 
 	return 0;

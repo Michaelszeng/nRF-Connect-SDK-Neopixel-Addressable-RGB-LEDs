@@ -59,8 +59,6 @@ void neopixel_show_color(uint8_t r1, uint8_t g1, uint8_t b1, uint8_t r2, uint8_t
      * Set to all 0's to turn the LEDs off.
      * 
      * IMPLEMENTATION NOTE: LED expects 24 bit signal in GRB order (8 bits each color)
-     * 
-     * THIS IS THE PRIMARY FUNCTION WE SHOULD BE USING.
      */
 
     // Estimated time per loop (rough) is 0.2ms. The timing is horribly inaccurate.
@@ -182,4 +180,43 @@ void neopixel_show_color(uint8_t r1, uint8_t g1, uint8_t b1, uint8_t r2, uint8_t
         k_sleep(K_USEC(80));  // Reset sequence between commands of two LEDs
     }
     
+}
+
+void neopixel_fade_in_out(uint8_t r1, uint8_t g1, uint8_t b1, uint8_t r2, uint8_t g2, uint8_t b2, int msecs) {
+    /**
+     * Function to fade LEDs in and out smoothly at a period of msecs milliseconds.
+     * Both LEDs will fade in sync.
+     * 
+     * The given rgb values are the maximum intensity during the fade.
+     */
+
+    int NUM_CYCLES = 50;  // Probably enough to not have noticeably jump
+    int delay_per_cycle = 0.5*msecs / NUM_CYCLES;
+
+    // Artificial brightness caps because some colors are brighter than others
+    int MAX_R = 250;
+    int MAX_G = 200;
+    int MAX_B = 250;
+    if (r1 > MAX_R) {r1 = MAX_R;}
+    if (g1 > MAX_G) {g1 = MAX_G;}
+    if (b1 > MAX_B) {b1 = MAX_B;}
+    if (r2 > MAX_R) {r2 = MAX_R;}
+    if (g2 > MAX_G) {g2 = MAX_G;}
+    if (b2 > MAX_B) {b2 = MAX_B;}
+
+    float r1_step = r1/NUM_CYCLES;
+    float g1_step = g1/NUM_CYCLES;
+    float b1_step = b1/NUM_CYCLES;
+    float r2_step = r2/NUM_CYCLES;
+    float g2_step = g2/NUM_CYCLES;
+    float b2_step = b2/NUM_CYCLES;
+
+    // Fade up
+    for (int i=0; i<NUM_CYCLES; i++) {
+        neopixel_show_color((int) (r1_step*i), (int) (g1_step*i), (int) (b1_step*i), (int) (r2_step*i), (int) (g2_step*i), (int) (b2_step*i), delay_per_cycle);
+    }
+    // Fade down
+    for (int i=NUM_CYCLES-1; i>=0; i--) {
+        neopixel_show_color((int) (r1_step*i), (int) (g1_step*i), (int) (b1_step*i), (int) (r2_step*i), (int) (g2_step*i), (int) (b2_step*i), delay_per_cycle);
+    }
 }
