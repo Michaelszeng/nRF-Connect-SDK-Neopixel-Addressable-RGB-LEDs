@@ -23,17 +23,14 @@ int main(void)
 	init_neopixels();
 
 	while(1) {
-		// nrf_gpio_pin_set(NEOPIXEL_PIN);
-		// k_msleep(10);
-		// nrf_gpio_pin_clear(NEOPIXEL_PIN);
-		// k_msleep(10);
-
-		// NEOPIXEL_SEND_ONE
-		// NEOPIXEL_SEND_ZERO
-		
-		// LOG_INF("x ");
-
-		test();
+		neopixel_show_color(255, 0, 0, 255, 0, 0, 1000);
+		neopixel_show_color(0, 0, 0, 0, 0, 0, 1000);
+		neopixel_show_color(0, 255, 0, 0, 255, 0, 1000);
+		neopixel_show_color(0, 0, 0, 0, 0, 0, 1000);
+		neopixel_show_color(0, 0, 255, 0, 0, 255, 1000);
+		neopixel_show_color(0, 0, 0, 0, 0, 0, 1000);
+		neopixel_show_color(255, 255, 255, 255, 255, 255, 3000);
+		neopixel_show_color(0, 0, 0, 0, 0, 0, 1000);
 	}
 
 	return 0;
