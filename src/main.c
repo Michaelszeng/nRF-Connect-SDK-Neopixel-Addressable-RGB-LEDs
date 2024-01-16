@@ -24,9 +24,13 @@ int main(void)
 
 	while(1) {
 		// Basic Showing Colors
+		printk("1");
 		neopixel_show_color(255, 0, 0, 255, 0, 0, 500);
+		printk("2");
 		neopixel_show_color(0, 255, 0, 0, 255, 0, 500);
+		printk("3");
 		neopixel_show_color(0, 0, 255, 0, 0, 255, 500);
+		printk("4");
 		neopixel_show_color(255, 255, 255, 255, 255, 255, 500);
 		neopixel_show_color(0, 0, 0, 0, 0, 0, 2000);
 

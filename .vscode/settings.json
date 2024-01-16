@@ -10,5 +10,8 @@
         "devicetree.h": "c",
         "kernel.h": "c",
         "neopixel.h": "c"
-    }
+    },
+    "nrf-connect.applications": [
+        "${workspaceFolder}"
+    ]
 }
